@@ -47,6 +47,7 @@
             this.lstTitles.Name = "lstTitles";
             this.lstTitles.Size = new System.Drawing.Size(571, 303);
             this.lstTitles.TabIndex = 0;
+            this.lstTitles.Sorted = true;
             // 
             // label1
             // 
@@ -119,7 +120,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CleanerForm";
-            this.Text = "ID3 Cleaner";
+            this.Text = "Tag Cleaner";
             this.Load += new System.EventHandler(this.CleanerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

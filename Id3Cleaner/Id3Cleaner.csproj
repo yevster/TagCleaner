@@ -7,7 +7,7 @@
     <ProjectGuid>{DB350982-C72B-4EF7-AF22-0004CE10B215}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Id3Cleaner</RootNamespace>
-    <AssemblyName>Id3Cleaner</AssemblyName>
+    <AssemblyName>TagCleaner</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
