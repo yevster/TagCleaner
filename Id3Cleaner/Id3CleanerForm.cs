@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Id3Cleaner
@@ -20,7 +16,7 @@ namespace Id3Cleaner
          * The map of files to tag titles in the current directory. Need to keep this around 
          * so as to not impact files added after directory contents have been listed.
          */
-        private IDictionary<string, string> filesToTitlesMap;
+        private IDictionary<string, string> titlesToFiles;
 
         public CleanerForm()
         {
@@ -37,10 +33,10 @@ namespace Id3Cleaner
         private void showDirectory(string dir)
         {
             lstTitles.Items.Clear();
-            filesToTitlesMap = getTilesInDirectory(dir);
-            foreach (string title in filesToTitlesMap.Values) lstTitles.Items.Add(title);
+            titlesToFiles = getTilesInDirectory(dir);
+            foreach (string title in titlesToFiles.Keys) lstTitles.Items.Add(title);
+            for (int i = 0; i < lstTitles.Items.Count; ++i) lstTitles.SetSelected(i, true);
             txtCurrentDirectory.Text = dir;
-            txtStringToRemove.Text = GreatestCommonLeftSubstringFinder.FindGreatestCommonLeftSubstring(filesToTitlesMap.Values);
             updateRemoveButton();
         }
 
@@ -60,7 +56,7 @@ namespace Id3Cleaner
                     string title = tags.Tag.Title;
                     if (!string.IsNullOrEmpty(title))
                     {
-                        result.Add(file, title);
+                        result.Add(title, file);
                     }
                 }
                 catch (TagLib.UnsupportedFormatException)
@@ -96,15 +92,15 @@ namespace Id3Cleaner
 
         private void btnRemove_Click(object sender, EventArgs eventArgs)
         {
-            foreach (string file in filesToTitlesMap.Keys)
+            foreach (string oldTitle in lstTitles.SelectedItems.Cast<string>())
             {
+                string file = titlesToFiles[oldTitle];
                 try
                 {
                     var tags = TagLib.File.Create(file);
-                    string oldtitle = filesToTitlesMap[file];
-                    if (oldtitle.StartsWith(txtStringToRemove.Text))
+                    if (oldTitle.StartsWith(txtStringToRemove.Text))
                     {
-                        string newTitle = oldtitle.Remove(0, txtStringToRemove.Text.Length);
+                        string newTitle = oldTitle.Remove(0, txtStringToRemove.Text.Length);
                         tags.Tag.Title = newTitle;
                         tags.Save();
                     }
@@ -115,6 +111,12 @@ namespace Id3Cleaner
                 }
             }
             showDirectory(dlgDirectorySelect.SelectedPath);
+        }
+
+        private void lstTitles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var titles = lstTitles.SelectedItems.Cast<string>();
+            txtStringToRemove.Text = GreatestCommonLeftSubstringFinder.FindGreatestCommonLeftSubstring(titles);
         }
     }
 }
