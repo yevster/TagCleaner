@@ -118,7 +118,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1188, 892);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1212, 878);
             this.Controls.Add(this.txtStringToRemove);
             this.Controls.Add(this.txtCurrentDirectory);
             this.Controls.Add(this.btnRemove);
@@ -133,6 +134,7 @@
             this.Name = "CleanerForm";
             this.Text = "Tag Cleaner";
             this.Load += new System.EventHandler(this.CleanerForm_Load);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.CleanerForm_Layout);
             this.ResumeLayout(false);
             this.PerformLayout();
 

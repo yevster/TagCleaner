@@ -118,5 +118,15 @@ namespace Id3Cleaner
             var titles = lstTitles.SelectedItems.Cast<string>();
             txtStringToRemove.Text = GreatestCommonLeftSubstringFinder.FindGreatestCommonLeftSubstring(titles);
         }
+
+        private void CleanerForm_Layout(object sender, LayoutEventArgs e)
+        {
+            //Make symmetric bottom and right margins
+            int nonClientHeight = this.Height - this.ClientRectangle.Height;
+            this.Height = nonClientHeight + btnBrowse.Bottom + lstTitles.Top;
+
+            int nonClientWidth = this.Width - this.ClientRectangle.Width;
+            this.Width = nonClientWidth + btnRemove.Right + lstTitles.Left;
+        }
     }
 }
