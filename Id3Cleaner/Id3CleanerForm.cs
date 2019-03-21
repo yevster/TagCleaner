@@ -28,7 +28,7 @@ namespace Id3Cleaner
         {
             string curDir = Directory.GetCurrentDirectory();
             dlgDirectorySelect.SelectedPath = curDir;
-            dlgDirectorySelect.ShowNewFolderButton = true;
+            dlgDirectorySelect.ShowNewFolderButton = false;
             showDirectory(curDir);
         }
 
