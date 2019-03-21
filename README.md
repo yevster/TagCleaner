@@ -1,4 +1,4 @@
-[![Build Status](https://yevbro.visualstudio.com/Tag Cleaner/_apis/build/status/Tag%20Cleaner-.NET%20Desktop-CI?branchName=master)](https://yevbro.visualstudio.com/Tag Cleaner/_build/latest?definitionId=3&branchName=master)
+[![Build Status](https://yevbro.visualstudio.com/Tag%20Cleaner/_apis/build/status/Tag%20Cleaner-.NET%20Desktop-CI?branchName=master)](https://yevbro.visualstudio.com/Tag%20Cleaner/_build/latest?definitionId=3&branchName=master)
 
 This utility has one purpose and one purpose only: to edit the title tags of audio files in a single directory to remove common prefixes.
 
