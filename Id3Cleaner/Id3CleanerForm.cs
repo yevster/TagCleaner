@@ -28,11 +28,13 @@ namespace Id3Cleaner
         {
             string curDir = Directory.GetCurrentDirectory();
             dlgDirectorySelect.SelectedPath = curDir;
+            dlgDirectorySelect.ShowNewFolderButton = false;
             showDirectory(curDir);
         }
 
         private void showDirectory(string dir)
         {
+            lstTitles.ClearSelected();
             lstTitles.Items.Clear();
             titlesToFiles = getTilesInDirectory(dir);
             foreach (string title in titlesToFiles.Keys) lstTitles.Items.Add(title);
