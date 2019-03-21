@@ -28,6 +28,7 @@ namespace Id3Cleaner
         {
             string curDir = Directory.GetCurrentDirectory();
             dlgDirectorySelect.SelectedPath = curDir;
+            dlgDirectorySelect.RestoreDirectory = true;
             showDirectory(curDir);
         }
 
