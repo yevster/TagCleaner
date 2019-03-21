@@ -73,6 +73,7 @@ namespace Id3Cleaner
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
+            
             var selected = dlgDirectorySelect.ShowDialog();
             if (selected == DialogResult.OK)
             {
@@ -82,12 +83,22 @@ namespace Id3Cleaner
 
         private void txtStringToRemove_TextChanged(object sender, EventArgs e)
         {
+            if (lstTitles.SelectedItems?.Count > 0)
+            {
+                txtResultPreview.Text = getNewTitle(lstTitles.SelectedItems.Cast<string>().First());
+            }
             updateRemoveButton();
         }
 
         private void updateRemoveButton()
         {
             btnRemove.Enabled = txtStringToRemove.Text.Length > 0 && lstTitles.Items.Count > 0;
+        }
+
+
+        private string getNewTitle(string oldTitle)
+        {
+            return oldTitle.StartsWith(txtStringToRemove.Text) ? oldTitle.Remove(0, txtStringToRemove.Text.Length) : oldTitle;
         }
 
         private void btnRemove_Click(object sender, EventArgs eventArgs)
@@ -98,12 +109,9 @@ namespace Id3Cleaner
                 try
                 {
                     var tags = TagLib.File.Create(file);
-                    if (oldTitle.StartsWith(txtStringToRemove.Text))
-                    {
-                        string newTitle = oldTitle.Remove(0, txtStringToRemove.Text.Length);
-                        tags.Tag.Title = newTitle;
-                        tags.Save();
-                    }
+                    tags.Tag.Title = getNewTitle(oldTitle);
+                    tags.Save();
+                    
                 }
                 catch (Exception e)
                 {

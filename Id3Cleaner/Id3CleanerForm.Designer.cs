@@ -37,6 +37,8 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.txtCurrentDirectory = new System.Windows.Forms.TextBox();
             this.txtStringToRemove = new System.Windows.Forms.TextBox();
+            this.txtResultPreview = new System.Windows.Forms.TextBox();
+            this.lblResultPreview = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstTitles
@@ -75,7 +77,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(704, 767);
+            this.btnBrowse.Location = new System.Drawing.Point(704, 826);
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(6);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(220, 71);
@@ -87,7 +89,7 @@
             // btnRemove
             // 
             this.btnRemove.Enabled = false;
-            this.btnRemove.Location = new System.Drawing.Point(942, 767);
+            this.btnRemove.Location = new System.Drawing.Point(942, 826);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(6);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(228, 71);
@@ -114,12 +116,33 @@
             this.txtStringToRemove.TabIndex = 1;
             this.txtStringToRemove.TextChanged += new System.EventHandler(this.txtStringToRemove_TextChanged);
             // 
+            // txtResultPreview
+            // 
+            this.txtResultPreview.Enabled = false;
+            this.txtResultPreview.Location = new System.Drawing.Point(238, 764);
+            this.txtResultPreview.Margin = new System.Windows.Forms.Padding(6);
+            this.txtResultPreview.Name = "txtResultPreview";
+            this.txtResultPreview.Size = new System.Drawing.Size(930, 31);
+            this.txtResultPreview.TabIndex = 6;
+            // 
+            // lblResultPreview
+            // 
+            this.lblResultPreview.AutoSize = true;
+            this.lblResultPreview.Location = new System.Drawing.Point(24, 768);
+            this.lblResultPreview.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblResultPreview.Name = "lblResultPreview";
+            this.lblResultPreview.Size = new System.Drawing.Size(149, 25);
+            this.lblResultPreview.TabIndex = 7;
+            this.lblResultPreview.Text = "Result Privew:";
+            // 
             // CleanerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1212, 878);
+            this.ClientSize = new System.Drawing.Size(1191, 937);
+            this.Controls.Add(this.txtResultPreview);
+            this.Controls.Add(this.lblResultPreview);
             this.Controls.Add(this.txtStringToRemove);
             this.Controls.Add(this.txtCurrentDirectory);
             this.Controls.Add(this.btnRemove);
@@ -150,6 +173,8 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.TextBox txtCurrentDirectory;
         private System.Windows.Forms.TextBox txtStringToRemove;
+        private System.Windows.Forms.TextBox txtResultPreview;
+        private System.Windows.Forms.Label lblResultPreview;
     }
 }
 
