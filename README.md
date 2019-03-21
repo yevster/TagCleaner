@@ -1,4 +1,5 @@
-[![Build Status](https://yevbro.visualstudio.com/Tag%20Cleaner/_apis/build/status/Tag%20Cleaner-.NET%20Desktop-CI?branchName=master)](https://yevbro.visualstudio.com/Tag%20Cleaner/_build/latest?definitionId=3&branchName=master)
+[![Build Status](https://yevbro.visualstudio.com/Tag%20Cleaner/_apis/build/status/Tag%20Cleaner-.NET%20Desktop-CI?branchName=master)](https://yevbro.visualstudio.com/Tag%20Cleaner/_build/latest?definitionId=3&branchName=master) 
+[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/yevster/TagCleaner/branches/master/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/yevster/TagCleaner/branches/master)
 
 This utility has one purpose and one purpose only: to edit the title tags of audio files in a single directory to remove common prefixes.
 
