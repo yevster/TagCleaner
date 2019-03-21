@@ -34,6 +34,7 @@ namespace Id3Cleaner
 
         private void showDirectory(string dir)
         {
+            lstTitles.ClearSelected();
             lstTitles.Items.Clear();
             titlesToFiles = getTilesInDirectory(dir);
             foreach (string title in titlesToFiles.Keys) lstTitles.Items.Add(title);
