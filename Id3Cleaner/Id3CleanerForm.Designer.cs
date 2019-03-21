@@ -58,7 +58,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 644);
+            this.label1.Location = new System.Drawing.Point(25, 647);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(181, 25);
@@ -68,7 +68,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 704);
+            this.label2.Location = new System.Drawing.Point(25, 700);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 25);
@@ -109,7 +109,7 @@
             // 
             // txtStringToRemove
             // 
-            this.txtStringToRemove.Location = new System.Drawing.Point(238, 700);
+            this.txtStringToRemove.Location = new System.Drawing.Point(238, 694);
             this.txtStringToRemove.Margin = new System.Windows.Forms.Padding(6);
             this.txtStringToRemove.Name = "txtStringToRemove";
             this.txtStringToRemove.Size = new System.Drawing.Size(930, 31);
@@ -119,7 +119,7 @@
             // txtResultPreview
             // 
             this.txtResultPreview.Enabled = false;
-            this.txtResultPreview.Location = new System.Drawing.Point(238, 764);
+            this.txtResultPreview.Location = new System.Drawing.Point(238, 749);
             this.txtResultPreview.Margin = new System.Windows.Forms.Padding(6);
             this.txtResultPreview.Name = "txtResultPreview";
             this.txtResultPreview.Size = new System.Drawing.Size(930, 31);
@@ -128,7 +128,7 @@
             // lblResultPreview
             // 
             this.lblResultPreview.AutoSize = true;
-            this.lblResultPreview.Location = new System.Drawing.Point(24, 768);
+            this.lblResultPreview.Location = new System.Drawing.Point(25, 752);
             this.lblResultPreview.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblResultPreview.Name = "lblResultPreview";
             this.lblResultPreview.Size = new System.Drawing.Size(149, 25);

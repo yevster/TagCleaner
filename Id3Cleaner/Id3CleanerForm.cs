@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -83,10 +84,19 @@ namespace Id3Cleaner
 
         private void txtStringToRemove_TextChanged(object sender, EventArgs e)
         {
-            if (lstTitles.SelectedItems?.Count > 0)
-            {
-                txtResultPreview.Text = getNewTitle(lstTitles.SelectedItems.Cast<string>().First());
+            txtResultPreview.BackColor = txtCurrentDirectory.BackColor;
+            if (lstTitles.SelectedItems?.Count > 0) {
+                string oldTitle = lstTitles.SelectedItems.Cast<string>().First();
+                string newTitle = getNewTitle(oldTitle);
+                txtResultPreview.Text = newTitle;
+                
+                //If the string to remove is not present in the title, highlight the error condition.
+                if (string.Equals(oldTitle, newTitle) && !string.IsNullOrEmpty(oldTitle))
+                {
+                    txtResultPreview.BackColor = Color.Red;
+                } 
             }
+            
             updateRemoveButton();
         }
 
