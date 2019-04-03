@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TrackData.cs" />
     <Compile Include="GreatestCommonLeftSubstringFinder.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Id3CleanerForm.cs">

@@ -13,12 +13,6 @@ namespace Id3Cleaner
     public partial class CleanerForm : Form
     {
 
-        /*
-         * The map of files to tag titles in the current directory. Need to keep this around 
-         * so as to not impact files added after directory contents have been listed.
-         */
-        private IDictionary<string, string> titlesToFiles;
-
         public CleanerForm()
         {
             InitializeComponent();
@@ -33,11 +27,11 @@ namespace Id3Cleaner
 
         private void showDirectory(string dir)
         {
-            lstTitles.Items.Clear();
-            titlesToFiles = getTilesInDirectory(dir);
-            foreach (string title in titlesToFiles.Keys) lstTitles.Items.Add(title);
+            var tracks = getTracksInDirectory(dir);
+            lstTitles.DataSource = tracks;
+            lstTitles.DisplayMember = "Title";
             for (int i = 0; i < lstTitles.Items.Count; ++i) lstTitles.SetSelected(i, true);
-            txtCurrentDirectory.Text = dir;
+       
             updateRemoveButton();
         }
 
@@ -46,9 +40,9 @@ namespace Id3Cleaner
         /// </summary>
         /// <param name="dir"></param>
         /// <returns></returns>
-        private static IDictionary<string, string> getTilesInDirectory(string dir)
+        private static IList<TrackData> getTracksInDirectory(string dir)
         {
-            var result = new Dictionary<string, string>();
+            var result = new List<TrackData>();
             foreach (string file in Directory.GetFiles(dir))
             {
                 try
@@ -57,7 +51,7 @@ namespace Id3Cleaner
                     string title = tags.Tag.Title;
                     if (!string.IsNullOrEmpty(title))
                     {
-                        result.Add(title, file);
+                        result.Add(new TrackData(title, file));
                     }
                 }
                 catch (TagLib.UnsupportedFormatException)
@@ -69,7 +63,7 @@ namespace Id3Cleaner
                     MessageBox.Show($"Unable to read file {file}. {e.Message}", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            return result.ToImmutableDictionary();
+            return result.ToImmutableList();
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -86,7 +80,7 @@ namespace Id3Cleaner
         {
             txtResultPreview.BackColor = txtCurrentDirectory.BackColor;
             if (lstTitles.SelectedItems?.Count > 0) {
-                string oldTitle = lstTitles.SelectedItems.Cast<string>().First();
+                string oldTitle = lstTitles.SelectedItems.Cast<TrackData>().First().Title;
                 string newTitle = getNewTitle(oldTitle);
                 txtResultPreview.Text = newTitle;
                 
@@ -113,19 +107,19 @@ namespace Id3Cleaner
 
         private void btnRemove_Click(object sender, EventArgs eventArgs)
         {
-            foreach (string oldTitle in lstTitles.SelectedItems.Cast<string>())
+            foreach (var track in lstTitles.SelectedItems.Cast<TrackData>())
             {
-                string file = titlesToFiles[oldTitle];
+                string oldTitle = track.Title;
+                
                 try
                 {
-                    var tags = TagLib.File.Create(file);
+                    var tags = TagLib.File.Create(track.FilePath);
                     tags.Tag.Title = getNewTitle(oldTitle);
                     tags.Save();
-                    
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show($"Unable to edit file {file}. {e.Message}", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Unable to edit file {track.FilePath}. {e.Message}", Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             showDirectory(dlgDirectorySelect.SelectedPath);
@@ -133,7 +127,7 @@ namespace Id3Cleaner
 
         private void lstTitles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var titles = lstTitles.SelectedItems.Cast<string>();
+            var titles = lstTitles.SelectedItems.Cast<TrackData>().Select(t => t.Title);
             txtStringToRemove.Text = GreatestCommonLeftSubstringFinder.FindGreatestCommonLeftSubstring(titles);
         }
 
