@@ -77,24 +77,25 @@ namespace Id3Cleaner
             }
         }
 
-        private void txtStringToRemove_TextChanged(object sender, EventArgs e)
+        private void parametersChanged()
         {
             txtResultPreview.BackColor = txtCurrentDirectory.BackColor;
-            if (lstTitles.SelectedItems?.Count > 0) {
+            if (lstTitles.SelectedItems?.Count > 0)
+            {
                 string oldTitle = lstTitles.SelectedItems.Cast<TrackData>().First().Title;
                 string newTitle = getNewTitle(oldTitle);
                 txtResultPreview.Text = newTitle;
-                
+
                 //If the string to remove is not present in the title, highlight the error condition.
                 if (string.Equals(oldTitle, newTitle) && !string.IsNullOrEmpty(oldTitle))
                 {
                     txtResultPreview.BackColor = Color.Red;
-                } 
+                }
             }
-            
+
             updateRemoveButton();
         }
-
+        
         private void updateRemoveButton()
         {
             btnRemove.Enabled = txtStringToRemove.Text.Length > 0 && lstTitles.Items.Count > 0;
@@ -103,7 +104,7 @@ namespace Id3Cleaner
 
         private string getNewTitle(string oldTitle)
         {
-            return oldTitle.StartsWith(txtStringToRemove.Text) ? oldTitle.Remove(0, txtStringToRemove.Text.Length) : oldTitle;
+            return txtStringToPrepend.Text + ( oldTitle.StartsWith(txtStringToRemove.Text) ? oldTitle.Remove(0, txtStringToRemove.Text.Length) : oldTitle);
         }
 
         private void btnRemove_Click(object sender, EventArgs eventArgs)
@@ -141,5 +142,6 @@ namespace Id3Cleaner
             int nonClientWidth = this.Width - this.ClientRectangle.Width;
             this.Width = nonClientWidth + btnRemove.Right + lstTitles.Left;
         }
+
     }
 }
