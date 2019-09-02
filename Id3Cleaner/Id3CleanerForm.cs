@@ -143,5 +143,14 @@ namespace Id3Cleaner
             this.Width = nonClientWidth + btnRemove.Right + lstTitles.Left;
         }
 
+        private void txtStringToPrepend_TextChanged(object sender, EventArgs e)
+        {
+            parametersChanged();
+        }
+
+        private void txtStringToRemove_TextChanged(object sender, EventArgs e)
+        {
+            parametersChanged();
+        }
     }
 }
