@@ -40,7 +40,7 @@
             this.txtResultPreview = new System.Windows.Forms.TextBox();
             this.lblResultPreview = new System.Windows.Forms.Label();
             this.txtStringToPrepend = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblToPrepend = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lstTitles
@@ -144,7 +144,16 @@
             this.txtStringToPrepend.Size = new System.Drawing.Size(853, 29);
             this.txtStringToPrepend.TabIndex = 8;
             // 
-            // label3
+            // txtStringToPrepend
+            // 
+            this.txtStringToPrepend.Location = new System.Drawing.Point(178, 578);
+            this.txtStringToPrepend.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtStringToPrepend.Name = "txtStringToPrepend";
+            this.txtStringToPrepend.Size = new System.Drawing.Size(698, 26);
+            this.txtStringToPrepend.TabIndex = 8;
+            this.txtStringToPrepend.TextChanged += new System.EventHandler(this.txtStringToPrepend_TextChanged);
+            // 
+            // lblToPrepend
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(23, 698);
@@ -161,7 +170,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1092, 900);
             this.Controls.Add(this.txtStringToPrepend);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblToPrepend);
             this.Controls.Add(this.txtResultPreview);
             this.Controls.Add(this.lblResultPreview);
             this.Controls.Add(this.txtStringToRemove);
@@ -173,7 +182,7 @@
             this.Controls.Add(this.lstTitles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "CleanerForm";
             this.Text = "Tag Cleaner";
@@ -197,7 +206,7 @@
         private System.Windows.Forms.TextBox txtResultPreview;
         private System.Windows.Forms.Label lblResultPreview;
         private System.Windows.Forms.TextBox txtStringToPrepend;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblToPrepend;
     }
 }
 
