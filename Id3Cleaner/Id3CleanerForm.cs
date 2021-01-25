@@ -16,6 +16,8 @@ namespace Id3Cleaner
         public CleanerForm()
         {
             InitializeComponent();
+            this.txtStringToRemove.TextChanged += (e, args) =>{ parametersChanged(); };
+            this.txtStringToPrepend.TextChanged += (e, args) => { parametersChanged(); };
         }
 
         private void CleanerForm_Load(object sender, EventArgs e)

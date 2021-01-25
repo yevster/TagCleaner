@@ -47,12 +47,12 @@
             // 
             this.lstTitles.FormattingEnabled = true;
             this.lstTitles.HorizontalScrollbar = true;
-            this.lstTitles.ItemHeight = 25;
-            this.lstTitles.Location = new System.Drawing.Point(30, 23);
+            this.lstTitles.ItemHeight = 24;
+            this.lstTitles.Location = new System.Drawing.Point(28, 22);
             this.lstTitles.Margin = new System.Windows.Forms.Padding(6);
             this.lstTitles.Name = "lstTitles";
             this.lstTitles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstTitles.Size = new System.Drawing.Size(1138, 579);
+            this.lstTitles.Size = new System.Drawing.Size(1044, 556);
             this.lstTitles.Sorted = true;
             this.lstTitles.TabIndex = 0;
             this.lstTitles.SelectedIndexChanged += new System.EventHandler(this.lstTitles_SelectedIndexChanged);
@@ -60,29 +60,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 630);
+            this.label1.Location = new System.Drawing.Point(23, 605);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 25);
+            this.label1.Size = new System.Drawing.Size(165, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Current Directory:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 683);
+            this.label2.Location = new System.Drawing.Point(23, 654);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 25);
+            this.label2.Size = new System.Drawing.Size(167, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "String to Remove:";
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(704, 844);
+            this.btnBrowse.Location = new System.Drawing.Point(645, 810);
             this.btnBrowse.Margin = new System.Windows.Forms.Padding(6);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(220, 71);
+            this.btnBrowse.Size = new System.Drawing.Size(202, 68);
             this.btnBrowse.TabIndex = 3;
             this.btnBrowse.Text = "&Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;
@@ -91,10 +91,10 @@
             // btnRemove
             // 
             this.btnRemove.Enabled = false;
-            this.btnRemove.Location = new System.Drawing.Point(942, 844);
+            this.btnRemove.Location = new System.Drawing.Point(864, 810);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(6);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(228, 71);
+            this.btnRemove.Size = new System.Drawing.Size(209, 68);
             this.btnRemove.TabIndex = 4;
             this.btnRemove.Text = "&Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -102,69 +102,64 @@
             // 
             // txtCurrentDirectory
             // 
-            this.txtCurrentDirectory.Location = new System.Drawing.Point(238, 627);
+            this.txtCurrentDirectory.Location = new System.Drawing.Point(218, 602);
             this.txtCurrentDirectory.Margin = new System.Windows.Forms.Padding(6);
             this.txtCurrentDirectory.Name = "txtCurrentDirectory";
             this.txtCurrentDirectory.ReadOnly = true;
-            this.txtCurrentDirectory.Size = new System.Drawing.Size(930, 31);
+            this.txtCurrentDirectory.Size = new System.Drawing.Size(853, 29);
             this.txtCurrentDirectory.TabIndex = 5;
             // 
             // txtStringToRemove
             // 
-            this.txtStringToRemove.Location = new System.Drawing.Point(238, 677);
+            this.txtStringToRemove.Location = new System.Drawing.Point(218, 650);
             this.txtStringToRemove.Margin = new System.Windows.Forms.Padding(6);
             this.txtStringToRemove.Name = "txtStringToRemove";
-            this.txtStringToRemove.Size = new System.Drawing.Size(930, 31);
+            this.txtStringToRemove.Size = new System.Drawing.Size(853, 29);
             this.txtStringToRemove.TabIndex = 1;
-            this.txtStringToRemove.TextChanged += (e, args) => { parametersChanged(); };
-
-            // 
-            // txtStringToPrepend
-            // 
-            this.txtStringToPrepend.Location = new System.Drawing.Point(238, 723);
-            this.txtStringToPrepend.Margin = new System.Windows.Forms.Padding(6);
-            this.txtStringToPrepend.Name = "txtStringToPrepend";
-            this.txtStringToPrepend.Size = new System.Drawing.Size(930, 31);
-            this.txtStringToPrepend.TabIndex = 8;
-            this.txtStringToPrepend.TextChanged += (e, args) => { parametersChanged(); };
-
             // 
             // txtResultPreview
             // 
             this.txtResultPreview.Enabled = false;
-            this.txtResultPreview.Location = new System.Drawing.Point(238, 778);
+            this.txtResultPreview.Location = new System.Drawing.Point(218, 747);
             this.txtResultPreview.Margin = new System.Windows.Forms.Padding(6);
             this.txtResultPreview.Name = "txtResultPreview";
-            this.txtResultPreview.Size = new System.Drawing.Size(930, 31);
+            this.txtResultPreview.Size = new System.Drawing.Size(853, 29);
             this.txtResultPreview.TabIndex = 6;
             // 
             // lblResultPreview
             // 
             this.lblResultPreview.AutoSize = true;
-            this.lblResultPreview.Location = new System.Drawing.Point(25, 781);
+            this.lblResultPreview.Location = new System.Drawing.Point(23, 750);
             this.lblResultPreview.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblResultPreview.Name = "lblResultPreview";
-            this.lblResultPreview.Size = new System.Drawing.Size(149, 25);
+            this.lblResultPreview.Size = new System.Drawing.Size(135, 25);
             this.lblResultPreview.TabIndex = 7;
             this.lblResultPreview.Text = "Result Privew:";
-
+            // 
+            // txtStringToPrepend
+            // 
+            this.txtStringToPrepend.Location = new System.Drawing.Point(218, 694);
+            this.txtStringToPrepend.Margin = new System.Windows.Forms.Padding(6);
+            this.txtStringToPrepend.Name = "txtStringToPrepend";
+            this.txtStringToPrepend.Size = new System.Drawing.Size(853, 29);
+            this.txtStringToPrepend.TabIndex = 8;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 726);
+            this.label3.Location = new System.Drawing.Point(23, 698);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 25);
+            this.label3.Size = new System.Drawing.Size(169, 25);
             this.label3.TabIndex = 9;
             this.label3.Text = "String to Prepend:";
             // 
             // CleanerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1191, 937);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1092, 900);
             this.Controls.Add(this.txtStringToPrepend);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtResultPreview);
